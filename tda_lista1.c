@@ -72,6 +72,27 @@ void vacial(list *l)
 
 }
 
+void liberarl(list *l)
+{
+    node *aux;
+    node *aux1;
+    int n = l->list_size;
+     
+
+            for (int i = 1; i <= n ; i++)
+        {
+            /* code */
+            aux = l->list_head;
+            aux1 = aux->next;
+            free(aux);
+            l->list_head = aux1;
+            l->list_size = l->list_size - 1;
+
+           
+        }
+
+}
+
 int main()
 {
     list l;
@@ -84,7 +105,10 @@ int main()
     insertarl(&l,5,5);
     printList(&l);
     printf("Longitud: %d\n\n",l.list_size);
-    
+
+    liberarl(&l);
+    printList(&l);
+    printf("Longitud: %d\n\n",l.list_size);
 
     system("pause");
     return 0;

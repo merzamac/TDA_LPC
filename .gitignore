@@ -5,5 +5,5 @@
 ./.vscode/
 .vscode
 .vin
-
+.vscode/tasks.json
 tda_lista1

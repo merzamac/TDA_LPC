@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* TDA LISTA SIN NODE CABECERA 
- 
+/* TDA LISTA SIN NODE CABECERA
+
     struct list       1º nodo           2º nodo
           |              |                 |
     +------+---+     +---+---+       +----+------+
     |size=2| o----->|  2  | o-----> |  3 | NULL |
-    +-----+----+     +---+---+       +----+------+  
+    +-----+----+     +---+---+       +----+------+
 
 */
 typedef struct Node  // creamos nuestra estructura tipo nodo
@@ -34,7 +34,7 @@ void printList(list *l)
     printf("||\n");
 }
 void insertarl(list *l,int data,int pos)
-{   //variables tipo nodo 
+{   //variables tipo nodo
     node *aux;
     node * new_node;
 
@@ -63,10 +63,10 @@ void insertarl(list *l,int data,int pos)
         aux->next = new_node;
         l->list_size = l->list_size + 1;
     }
-    
+
 }
-void vacial(list *l) 
-{   
+void vacial(list *l)
+{
     l->list_size = 0;
     l->list_head = NULL;
 
@@ -77,7 +77,7 @@ void liberarl(list *l)
     node *aux;
     node *aux1;
     int n = l->list_size;
-     
+
 
             for (int i = 1; i <= n ; i++)
         {
@@ -86,11 +86,8 @@ void liberarl(list *l)
             aux1 = aux->next;
             free(aux);
             l->list_head = aux1;
-            l->list_size = l->list_size - 1;
-
-           
         }
-
+        l->list_size = 0;
 }
 
 int main()
@@ -109,7 +106,5 @@ int main()
     liberarl(&l);
     printList(&l);
     printf("Longitud: %d\n\n",l.list_size);
-
-    system("pause");
     return 0;
 }
